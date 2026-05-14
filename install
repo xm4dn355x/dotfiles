@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -e
+
+export SHELL='/bin/zsh'
+
+readonly DOTBOT_DIR='dotbot'
+readonly DOTBOT_BIN='bin/dotbot'
+readonly BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly ARGS="$@"
+
+cd "$BASEDIR"
+
+git submodule sync --quiet --recursive
+git submodule update --init --recursive
+
+run_dotbot() {
+  local config="$1"
+  "$BASEDIR/$DOTBOT_DIR/$DOTBOT_BIN" \
+    -d "$BASEDIR" \
+    --plugin-dir dotbot-brewfile \
+    -c "$config" $ARGS
+}
+
+# [always] Basic configs
+run_dotbot 'steps/base.yml' || true
+run_dotbot 'steps/zsh.yml' || true
+
+# [always] Python-stack
+run_dotbot 'steps/python.yml' || true
+
+# [on condition] Platform-specific configs 
+# Mac OS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  run_dotbot 'steps/macos.yml' || true
+# Linux (hided)
+#elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#  run_dotbot 'steps/linux.yml' || true
+fi
+
+echo "✅ Dotfiles installed successfully!"

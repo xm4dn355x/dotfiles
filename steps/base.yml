@@ -1,0 +1,17 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      force: false
+
+#- clean: ['~']
+
+#- link:
+#    ~/.gitconfig: config/git/.gitconfig
+#    ~/.tmux.conf: config/tmux/.tmux.conf
+#    ~/.config/starship.toml: config/starship.toml
+
+- create:
+    - ~/.local/bin
+    - ~/.cache
+    - ~/.config/zsh/completions

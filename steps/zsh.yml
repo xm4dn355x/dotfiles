@@ -1,0 +1,15 @@
+#- link:
+#    ~/.zshrc: config/zsh/.zshrc
+#    ~/.zshenv: config/zsh/.zshenv
+#    ~/.config/zsh: config/zsh
+
+#- shell:
+#  - [zsh -c 'source ~/.zshrc', "Validating zsh config"]
+#  - 
+#    command: |
+#      if command -v fzf >/dev/null; then
+#        ~/.fzf/install --no-bash --no-fish --no-key-bindings --no-completion
+#      fi
+#    description: "Installing fzf keybindings"
+#    stdout: true
+#    stderr: true

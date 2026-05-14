@@ -1,0 +1,10 @@
+# Brewfile
+brew "zsh"
+brew "starship"
+brew "zoxide"
+brew "fzf"
+brew "ripgrep"
+brew "fd"
+brew "jq"
+brew "tree"
+cask "font-jetbrains-mono-nerd-font"

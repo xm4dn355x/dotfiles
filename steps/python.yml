@@ -1,0 +1,15 @@
+- shell:
+  - 
+    command: |
+      if ! command -v uv >/dev/null; then
+        curl -LsSf https://astral.sh/uv/install.sh | sh
+      fi
+    description: "Installing uv (Python package manager)"
+    stdout: true
+
+  - 
+    command: |
+      "$HOME/.local/bin/uv" tool install ruff
+      "$HOME/.local/bin/uv" tool install mypy
+    description: "Installing Python dev tools via uv"
+    stdout: true

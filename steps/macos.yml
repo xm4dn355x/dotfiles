@@ -1,0 +1,11 @@
+#- link:
+#    ~/.hammerspoon:
+#      if: '[ `uname` = Darwin ]'
+#      path: config/macos/hammerspoon
+#      ignore-missing: true
+
+- plugins:
+    - dotbot-brewfile
+
+- brewfile:
+    file: Brewfile
