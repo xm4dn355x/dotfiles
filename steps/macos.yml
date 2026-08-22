@@ -9,3 +9,18 @@
 
 - brewfile:
     file: Brewfile
+
+- shell:
+    - command: |
+        if ! pluginkit -v -m | grep -q "quick-look.appex"; then
+          PLUGIN_PATH="/Applications/Markdown Preview.app/Contents/PlugIns/quick-look.appex"
+          if [ -d "$PLUGIN_PATH" ]; then
+            pluginkit -a "$PLUGIN_PATH"
+            qlmanage -r
+            qlmanage -r cache
+            killall Finder
+          fi
+        fi
+      description: "Регистрация Markdown Preview в подсистеме Quick Look (если отсутствует)"
+      stdout: true
+      stderr: true
