@@ -1,11 +1,10 @@
 # This apply to all commands that come after setting the defaults.
 - defaults:
     brewfile:
-      stdout: false
-      stderr: false
+      stdout: true
+      stderr: true
       include: ['tap', 'brew', 'cask', 'mas']
-      # Optional, if you want to run install command as another user:
-      sudo: brewuser
+      # sudo: m4dn355
 
 - brewfile:
     # This accepts the same options as `brew bundle` command:
