@@ -17,6 +17,7 @@ brew "zsh-syntax-highlighting"
 brew "starship"
 
 # Basic dev environment
+brew "git"
 brew "curl"
 brew "gcc"
 brew "nvm"
